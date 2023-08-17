@@ -3,6 +3,7 @@
 <head>
   <title>Express</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="/script/index.js"></script>
 </head>
 
 <body>
@@ -13,7 +14,10 @@
 
 <script>
   function getUser() {
-    fetch("http://localhost:3000/users")
+    fetch("http://localhost:3000/users", {
+      credentials: "include",
+      mode: "cors",
+    })
       .then((response) => response.text())
       .then((text) => {
         document.getElementsByName('context')[0].innerText = text
